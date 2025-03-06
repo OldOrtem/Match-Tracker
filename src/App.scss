@@ -1,0 +1,172 @@
+@font-face {
+	font-family: 'Tactic Sans';
+	src: url('./assets/fonts/Tactic Sans/TacticSans-BlkIt.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('./assets/fonts//Inter/Inter_18pt-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('./assets/fonts//Inter/Inter_18pt-Medium.ttf') format('truetype');
+	font-weight: 500;
+}
+
+:root {
+	--main-background: #06080c;
+	--match-background: #0b0e12;
+	--error-background: #0f1318;
+
+	--match-status-live: #43ad28;
+	--match-status-preparing: #eb6402;
+	--match-status-finished: #eb0237;
+
+	--update-butt-default: #eb0237;
+	--update-butt-pressed: #a01131;
+	--update-butt-disabled: #701328;
+
+	--base-text: #fff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: var(--main-background);
+
+	color: var(--base-text);
+
+	font-size: 16px;
+	line-height: 1.5em;
+	font-family: 'Inter';
+	font-weight: 600;
+}
+
+header,
+main {
+	max-width: 1920px;
+	margin: auto;
+}
+
+.header {
+	padding: 42px 42px 20px;
+
+	&__title {
+		font-family: Tactic Sans;
+		font-weight: 400;
+		font-style: italic;
+		font-size: 2rem;
+		line-height: 100%;
+	}
+
+	&__toolbar {
+		font-size: 1.125rem;
+		gap: 12px;
+
+		.error {
+			background-color: var(--error-background);
+			padding: 0.875rem 1.5rem;
+			gap: 10px;
+			font-weight: 500;
+
+			img {
+				width: 1.75rem;
+				height: 1.75rem;
+			}
+
+			span {
+			}
+		}
+
+		.updateButt {
+			background-color: var(--update-butt-default);
+			padding: 0.9375rem 2.5rem;
+			border: none;
+			color: var(--base-text);
+			gap: 10px;
+			cursor: pointer;
+
+			img {
+				width: 1.625rem;
+				height: 1.625rem;
+			}
+
+			&:hover,
+			&:active {
+				background-color: var(--update-butt-pressed);
+			}
+
+			&:disabled {
+				background-color: var(--update-butt-disabled);
+				cursor: not-allowed;
+				img {
+					animation: autoRotate 0.3s linear infinite;
+				}
+			}
+		}
+	}
+}
+
+@keyframes autoRotate {
+	from {
+		transform: rotate(0);
+	}
+
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+.matches {
+	&__list {
+		list-style-type: none;
+		padding: 0 42px;
+		margin: 0;
+		gap: 12px;
+
+		.match {
+			padding: 1rem 2.25rem;
+			background-color: var(--match-background);
+
+			&__team {
+				gap: 14px;
+				font-size: 1rem;
+			}
+
+			&__stats {
+				gap: 4px;
+			}
+
+			&__score {
+				font-size: 1.25rem;
+			}
+
+			&__status {
+				padding: 6px 2px;
+				min-width: 92px;
+				text-align: center;
+				font-size: 0.75rem;
+				line-height: 100%;
+
+				&_Scheduled {
+					background-color: var(--match-status-preparing);
+				}
+
+				&_Ongoing {
+					background-color: var(--match-status-live);
+				}
+
+				&_Finished {
+					background-color: var(--match-status-finished);
+				}
+			}
+		}
+	}
+}
