@@ -1,4 +1,5 @@
 import IMatchSummary from '../models/IMatchSummary';
+import teamLogo from '../assets/img/team.svg';
 
 interface MatchProps {
 	match: IMatchSummary;
@@ -8,7 +9,7 @@ const Match: React.FC<MatchProps> = ({ match }) => {
 	return (
 		<>
 			<div className='match__team flex items-center'>
-				<img src='src/assets/img/team.svg' alt='logo' />
+				<img src={teamLogo} alt='logo' />
 				<p>{match.homeTeam}</p>
 			</div>
 
@@ -25,7 +26,7 @@ const Match: React.FC<MatchProps> = ({ match }) => {
 
 			<div className='match__team flex items-center'>
 				<p>{match.awayTeam}</p>
-				<img src='src/assets/img/team.svg' alt='logo' />
+				<img src={teamLogo} alt='logo' />
 			</div>
 		</>
 	);

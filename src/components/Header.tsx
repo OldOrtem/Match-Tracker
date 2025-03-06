@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/matchesStore';
 import MatchService from '../services/MatchService';
+import updateImg from '../assets/img/update.svg';
+import errorImg from '../assets/img/error.svg';
+
 import {
 	fetchMatchesFailure,
 	fetchMatchesStart,
@@ -35,7 +38,7 @@ const Header: React.FC = () => {
 			<div className='header__toolbar flex items-center'>
 				{error && (
 					<div className='error flex items-center rounded-md'>
-						<img src='src/assets/img/error.svg' alt='error' />
+						<img src={errorImg} alt='error' />
 						<span>Ошибка: не удалось загрузить информацию</span>
 					</div>
 				)}
@@ -46,7 +49,7 @@ const Header: React.FC = () => {
 					disabled={loading}
 				>
 					<span>Обновить</span>
-					<img src='src/assets/img/update.svg' alt='loading...' />
+					<img src={updateImg} alt='loading...' />
 				</button>
 			</div>
 		</header>
