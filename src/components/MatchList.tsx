@@ -10,7 +10,7 @@ const MatchList: React.FC = () => {
 			<ul className='matches__list flex flex-col'>
 				{matches.map((match, index) => (
 					<li
-						className='match flex justify-between items-center rounded-md'
+						className='match flex  justify-between max-sm:flex-col items-center flex-wrap rounded-md'
 						key={index}
 					>
 						<Match match={match} />

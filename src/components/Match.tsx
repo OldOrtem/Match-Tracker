@@ -8,7 +8,7 @@ interface MatchProps {
 const Match: React.FC<MatchProps> = ({ match }) => {
 	return (
 		<>
-			<div className='match__team flex items-center'>
+			<div className='match__team flex items-center max-sm:self-start'>
 				<img src={teamLogo} alt='logo' />
 				<p>{match.homeTeam}</p>
 			</div>
@@ -24,7 +24,7 @@ const Match: React.FC<MatchProps> = ({ match }) => {
 				</div>
 			</div>
 
-			<div className='match__team flex items-center'>
+			<div className='match__team flex items-center max-sm:self-end'>
 				<p>{match.awayTeam}</p>
 				<img src={teamLogo} alt='logo' />
 			</div>
